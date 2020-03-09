@@ -1,0 +1,14 @@
+<v-container>
+  <v-snackbar v-model="snackbar" :timeout="5000" top color="error">
+    <span>This track Id: {{ trackId }}, is invalid </span>
+    <v-btn dark color="white" class="black--text" @click="snackbar = false">
+      Close
+    </v-btn>
+  </v-snackbar>
+
+  <v-row v-if="!snackbar" dense>
+    <v-col cols="12">
+      {{ track }}
+    </v-col>
+  </v-row>
+</v-container>
