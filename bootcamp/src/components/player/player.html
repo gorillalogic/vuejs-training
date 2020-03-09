@@ -1,0 +1,43 @@
+<div class="AppPlayer">
+  <v-list-item three-line>
+    <v-list-item-avatar tile size="80" color="grey">
+      <img :src="currentTrack.artworkUrl100" :alt="currentTrack.artistName" />
+    </v-list-item-avatar>
+    <v-list-item-content>
+      <div class="overline mb-4">{{ getTrackHeader }}</div>
+      <v-list-item-title class="headline mb-1"
+        >{{ currentTrack.trackName }}</v-list-item-title
+      >
+      <v-list-item-subtitle>{{ getSongInfo }}</v-list-item-subtitle>
+    </v-list-item-content>
+  </v-list-item>
+  <v-slider
+    :label="currentTime"
+    :max="duration"
+    :readonly="true"
+    :value="sliderTime"
+  />
+  <v-card-actions class="AppPlayer-actions">
+    <v-btn
+      :disabled="!actionsEnabled"
+      @click="goBackward10Seconds"
+      outlined
+      text
+    >
+      <v-icon>mdi-rewind-10</v-icon>
+    </v-btn>
+    <v-btn :disabled="!actionsEnabled" text outlined @click="togglePlay">
+      <v-icon v-if="!isPlaying">mdi-play</v-icon>
+      <v-icon v-else>mdi-pause</v-icon>
+    </v-btn>
+    <v-btn
+      :disabled="!actionsEnabled"
+      @click="goForward10Seconds"
+      outlined
+      text
+    >
+      <v-icon>mdi-fast-forward-10</v-icon>
+    </v-btn>
+  </v-card-actions>
+  <audio ref="player" :src="currentTrack.previewUrl"></audio>
+</div>

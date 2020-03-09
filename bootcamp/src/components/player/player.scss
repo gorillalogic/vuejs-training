@@ -1,0 +1,14 @@
+.AppPlayer {
+  width: 100%;
+
+  &-actions {
+    display: flex;
+    justify-content: center;
+  }
+
+  @media screen and (min-width: 768px) {
+    &-actions {
+      justify-content: start;
+    }
+  }
+}
