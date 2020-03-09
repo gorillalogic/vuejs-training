@@ -1,0 +1,15 @@
+.link {
+  text-decoration: none;
+  user-select: none;
+}
+
+.logo,
+.title {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.logo {
+  height: 30px;
+  margin-right: 15px;
+}
