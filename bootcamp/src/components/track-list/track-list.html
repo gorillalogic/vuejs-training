@@ -1,0 +1,67 @@
+<v-card :class="{ disabled }" :width="listWidth" class="card mx-auto">
+  <v-toolbar v-show="toolbar" color="green">
+    <v-toolbar-title v-text="title" />
+    <v-spacer />
+    <search-input v-show="!disabled" @change="searchTrack" />
+  </v-toolbar>
+
+  <v-list class="list" two-line width="100%">
+    <v-list-item-group v-if="list.length > 0" v-model="selected">
+      <template v-for="(item, index) in list">
+        <v-list-item
+          :key="item.trackId"
+          :to="{ name: 'details', params: { id: item.trackId } }"
+        >
+          <v-list-item-action>
+            <v-list-item-avatar>
+              <v-img :alt="item.trackName" :src="item.artworkUrl30" />
+            </v-list-item-avatar>
+          </v-list-item-action>
+
+          <v-list-item-content>
+            <v-list-item-title v-text="item.trackName" />
+            <v-list-item-subtitle
+              v-text="getSubTitle(item.artistName, item.primaryGenreName)"
+            />
+          </v-list-item-content>
+
+          <v-list-item-action>
+            <favorite-button :track="item" @click="clickFavorite" />
+          </v-list-item-action>
+
+          <v-list-item-action>
+            <v-icon @click.prevent.stop="playTrack(item)"
+              >mdi-play-circle-outline
+            </v-icon>
+          </v-list-item-action>
+        </v-list-item>
+
+        <v-divider
+          :key="'divider' + item.trackId"
+          v-if="index + 1 < list.length"
+        ></v-divider>
+      </template>
+    </v-list-item-group>
+
+    <v-list-item-group v-else>
+      <v-list-item>
+        <v-list-item-content>
+          <v-list-item-title v-text="noContentLabel" />
+        </v-list-item-content>
+      </v-list-item>
+    </v-list-item-group>
+
+    <v-footer v-show="footer && to" class="footer font-weight-medium">
+      <v-col class="text-right" cols="12">
+        <v-btn
+          :disabled="disabled"
+          :to="to"
+          color="white"
+          text
+          v-text="moreLabel"
+          :height="20"
+        />
+      </v-col>
+    </v-footer>
+  </v-list>
+</v-card>

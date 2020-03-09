@@ -1,0 +1,19 @@
+.card {
+  transition: opacity 300ms ease-in-out;
+}
+
+.list {
+  padding-bottom: 0;
+}
+
+.disabled {
+  cursor: not-allowed;
+  opacity: 0.3;
+}
+
+.footer {
+  & > div {
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+}

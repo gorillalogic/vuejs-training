@@ -1,0 +1,9 @@
+<v-btn @click.prevent="click" icon>
+  <v-tooltip left>
+    <template v-slot:activator="{ on }">
+      <v-icon v-if="isActive" v-on="on" color="yellow">mdi-star</v-icon>
+      <v-icon v-else v-on="on" color="grey lighten-1">mdi-star-outline</v-icon>
+    </template>
+    <span>{{ tooltipText }}</span>
+  </v-tooltip>
+</v-btn>
