@@ -1,0 +1,38 @@
+<div>
+  <search-input
+    :disabled="loading"
+    :loading="dialog"
+    @change="searchTracks"
+    ref="searchInput"
+    solo
+  />
+  <v-dialog
+    fullscreen
+    hide-overlay
+    transition="dialog-bottom-transition"
+    v-model="dialog"
+    width="600px"
+  >
+    <v-card>
+      <v-card-actions>
+        <v-spacer />
+        <v-btn color="green darken-1" text @click="dialog = false">
+          Close
+        </v-btn>
+      </v-card-actions>
+      <v-card-title>
+        <span class="headline">Results</span>
+      </v-card-title>
+      <v-card-text>
+        <ul>
+          <li v-for="(result, index) in results" :key="result.trackId">
+            <div>
+              {{result.artistName}}
+            </div>
+            {{result.trackName}}
+          </li>
+        </ul>
+      </v-card-text>
+    </v-card>
+  </v-dialog>
+</div>
