@@ -8,7 +8,16 @@
 
   <v-row v-if="!snackbar" dense>
     <v-col cols="12">
-      <track-detail :track="track" />
+      <track-detail v-if="track.trackName" :track="track" />
+      <router-link
+        :to="{ name: 'dashboard' }"
+        class="white--text"
+        color="grey"
+        text
+        v-else
+      >
+        Return home
+      </router-link>
     </v-col>
   </v-row>
 </v-container>
