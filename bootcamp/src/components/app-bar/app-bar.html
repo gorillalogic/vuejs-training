@@ -1,0 +1,15 @@
+<v-app-bar app clipped-left height="60">
+  <router-link
+    :to="{ name: 'dashboard' }"
+    class="link white--text"
+    text
+    title="Gorilla Cast"
+  >
+    <img class="logo" src="@/assets/app-bar-logo.png" alt="Gorilla Cast" />
+    <v-toolbar-title class="title">Gorilla Cast</v-toolbar-title>
+  </router-link>
+  <v-spacer />
+  <v-avatar color="teal" size="30">
+    <span class="white--text">GL</span>
+  </v-avatar>
+</v-app-bar>
