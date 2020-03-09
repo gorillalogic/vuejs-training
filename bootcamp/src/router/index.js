@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import Home from '@/views/Home.vue';
+import Home from '@/views/home/home.vue';
 
 Vue.use(VueRouter);
 
@@ -12,15 +12,29 @@ const routes = [
     component: Home,
   },
   {
+    path: '/podcasts/:category?',
+    name: 'podcasts',
+    component: () =>
+      import(
+        /* webpackChunkName: "list-all-podcast" */ '../views/list-all-podcast/list-all-podcast.vue'
+      ),
+  },
+  {
+    path: '/favorites',
+    name: 'favorites',
+    component: () =>
+      import(
+        /* webpackChunkName: "list-all-favorites" */ '../views/list-all-favorites/list-all-favorites.vue'
+      ),
+  },
+  {
     path: '/about',
     name: 'about',
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
+    component: () => import(/* webpackChunkName: "about" */ '../views/about/about.vue'),
   },
 ];
 
 const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
   routes,
 });
 
