@@ -1,7 +1,13 @@
 <v-container>
   <v-row>
-    <v-col cols="12">
-      <h1>Home</h1>
+    <v-col cols="12" sm="12">
+      <track-list
+        :list="podcastListFiltered"
+        :to="{ name: 'podcasts', params: { category }}"
+        @add-favorite="addFavorite"
+        @remove-favorite="removeFavorite"
+        @search="podcastSearch=$event"
+      />
     </v-col>
   </v-row>
 </v-container>
