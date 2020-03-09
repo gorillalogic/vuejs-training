@@ -11,7 +11,18 @@
     </v-col>
   </v-row>
   <v-row>
-    <v-col cols="12" sm="12">
+    <v-col cols="12" sm="6">
+      <track-list
+        :list="favoriteListFiltered"
+        :to=" { path: 'favorites' }"
+        @add-favorite="addFavorite"
+        @remove-favorite="removeFavorite"
+        @search="favoriteSearch=$event"
+        no-content-label="Please add a favorite track"
+        title="Favorites"
+      />
+    </v-col>
+    <v-col cols="12" sm="6">
       <track-list
         :list="podcastListFiltered"
         :to="{ name: 'podcasts', params: { category }}"

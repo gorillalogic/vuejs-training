@@ -299,8 +299,7 @@ class Api {
       propOr(null, 'id'),
       head,
       filter(pathEq(['track', 'trackId'], prop('trackId', track))),
-      this.getFavorites.bind(this),
-    )(track);
+    )(denormalize(this.state.favorites, [favoritesSchema], this.entities));
   }
 }
 
