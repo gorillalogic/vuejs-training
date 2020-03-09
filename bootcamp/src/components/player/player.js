@@ -1,5 +1,5 @@
 import { dateTimeToPlayTime } from '@/utils/dateTimeToPlayTime';
-import { LOOKUP_MOCK_DATA } from '@/api/constants';
+import { MESSAGE_PLAY_TRACK } from '@/constants/emit-events';
 import ARTWORK_PLACEHOLDER from '@/assets/artwork-placeholder.png';
 
 import { UPDATE_INTERVAL, TIME_OFFSET_10 } from './constants';
@@ -116,6 +116,6 @@ export default {
     this.$refs.player.addEventListener('play', this.onReproductionStart);
     this.$refs.player.addEventListener('pause', this.onReproductionPause);
     this.$refs.player.addEventListener('ended', this.onReproductionEnds);
-    this.setCurrentTrack(LOOKUP_MOCK_DATA);
+    this.$root.$on(MESSAGE_PLAY_TRACK, this.setCurrentTrack);
   },
 };
