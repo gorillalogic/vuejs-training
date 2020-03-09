@@ -24,14 +24,7 @@
         <span class="headline">Results</span>
       </v-card-title>
       <v-card-text>
-        <ul>
-          <li v-for="(result, index) in results" :key="result.trackId">
-            <div>
-              {{result.artistName}}
-            </div>
-            {{result.trackName}}
-          </li>
-        </ul>
+        <track-list :footer="false" :list="results" :toolbar="false" />
       </v-card-text>
     </v-card>
   </v-dialog>
