@@ -1,0 +1,38 @@
+.card {
+  padding: 20px 20px 0;
+}
+
+.title {
+  padding-bottom: 0;
+}
+
+.artwork {
+  width: 100%;
+}
+
+dl {
+  dt {
+    margin-right: 10px;
+    font-weight: 600;
+  }
+  dt,
+  dd {
+    display: inline;
+  }
+  dd:after {
+    content: '';
+    display: block;
+  }
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.action {
+  &--favorite {
+    margin-right: 15px;
+  }
+}

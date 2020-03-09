@@ -1,13 +1,19 @@
 import { isNil } from 'ramda';
 
 import api from '@/api';
+import TrackDetail from '@/components/track-detail/track-detail.vue';
 
 export default {
   name: 'Detail',
+  components: {
+    TrackDetail,
+  },
   data() {
     return {
       snackbar: false,
-      track: {},
+      track() {
+        return {};
+      },
       trackId: 0,
     };
   },

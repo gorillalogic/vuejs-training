@@ -1,0 +1,57 @@
+<div>
+  <v-card class="card" v-if="track.trackName" v-bind="$attrs">
+    <v-card-title class="title display-1">{{ track.trackName }}</v-card-title>
+    <v-container>
+      <v-row>
+        <v-col :cols="full ? 3 : 1">
+          <img
+            :alt="track.trackName"
+            :src="track.artworkUrl100"
+            class="artwork"
+          />
+        </v-col>
+        <v-col :cols="full ? 8 : 10">
+          <dl>
+            <dt>Artist</dt>
+            <dd class="font-weight-light">{{ track.artistName }}</dd>
+            <dt>Collection</dt>
+            <dd class="font-weight-light">{{ track.collectionName }}</dd>
+            <template v-if="full">
+              <dt>Country</dt>
+              <dd class="font-weight-light">{{ track.country }}</dd>
+              <dt>Genre</dt>
+              <dd class="font-weight-light">{{ track.primaryGenreName }}</dd>
+              <dt>Release date</dt>
+              <dd class="font-weight-light">
+                {{ track.releaseDate }}
+              </dd>
+              <dt>Content advisory rating</dt>
+              <dd class="font-weight-light">
+                {{ track.contentAdvisoryRating }}
+              </dd>
+            </template>
+          </dl>
+        </v-col>
+        <v-col class="actions" cols="1">
+          <favorite-button
+            :track="track"
+            @click="clickFavorite"
+            class="action action--favorite"
+          />
+          <v-btn @click.prevent="play(track)" icon>
+            <v-icon>mdi-play-circle-outline</v-icon>
+          </v-btn>
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-card>
+  <router-link
+    :to="{ name: 'dashboard' }"
+    class="white--text"
+    color="grey"
+    text
+    v-else
+  >
+    Return home
+  </router-link>
+</div>
