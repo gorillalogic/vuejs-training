@@ -1,5 +1,16 @@
 <v-container>
   <v-row>
+    <v-col cols="12">
+      <track-detail
+        :full="false"
+        :to="{ name: 'details', params: { id: track.trackId } }"
+        :track="track"
+        @add-favorite="addFavorite"
+        @remove-favorite="removeFavorite"
+      />
+    </v-col>
+  </v-row>
+  <v-row>
     <v-col cols="12" sm="12">
       <track-list
         :list="podcastListFiltered"
