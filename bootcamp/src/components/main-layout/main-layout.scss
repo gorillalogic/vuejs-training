@@ -1,0 +1,14 @@
+.app {
+  height: 100vh;
+}
+
+.content {
+  height: 100%;
+
+  .v-content__wrap {
+      overflow: auto;
+      padding-bottom: 20px;;
+      padding-top: 20px;;
+    }
+
+}
