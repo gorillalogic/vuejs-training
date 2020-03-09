@@ -1,7 +1,15 @@
 <v-container>
   <v-row>
     <v-col cols="12">
-      <h1>Favorites</h1>
+      <h1 class="title">Favorites</h1>
+      <track-list
+        :footer="false"
+        :list="favoriteList"
+        @search="searchTerm = $event"
+        list-width="90%"
+        no-content-label="Favorite list is empty"
+        title=""
+      />
     </v-col>
   </v-row>
 </v-container>
