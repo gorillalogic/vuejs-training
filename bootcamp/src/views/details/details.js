@@ -3,6 +3,10 @@ import { isNil } from 'ramda';
 import api from '@/api';
 import TrackDetail from '@/components/track-detail/track-detail.vue';
 
+import { addAndRemove, allFavorites } from '@/store/modules/favorites/utils';
+import { FETCH_FAVORITES } from '@/store/modules/favorites/types';
+import { mapFavoriteTrack } from '@/utils/mapFavoritesToList'
+
 export default {
   name: 'Detail',
   components: {
@@ -17,8 +21,15 @@ export default {
       trackId: 0,
     };
   },
+  computed: {
+    ...allFavorites(),
+  },
   methods: {
+    ...addAndRemove(),
     async fetchData() {
+      // Fetch favorites from store
+      this.$store.dispatch(FETCH_FAVORITES);
+
       this.trackId = Number(this.$route.params.id);
       this.snackbar = false;
       if (isNaN(this.trackId)) {
@@ -31,6 +42,9 @@ export default {
         this.snackbar = true;
       }
     },
+    updateTrack() {
+      this.track = mapFavoriteTrack(this.favorites, this.track);
+    },
   },
   mounted() {
     this.fetchData();
@@ -39,6 +53,12 @@ export default {
     $route() {
       this.track = {};
       this.fetchData();
+    },
+    favorites: {
+      handler() {
+        this.updateTrack();
+      },
+      deep: true,
     },
   },
 };

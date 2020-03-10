@@ -5,6 +5,8 @@
       <track-list
         :footer="false"
         :list="favoriteList"
+        @add-favorite="addFavorite"
+        @remove-favorite="removeFavorite"
         @search="searchTerm = $event"
         list-width="90%"
         no-content-label="Favorite list is empty"

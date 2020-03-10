@@ -8,7 +8,12 @@
 
   <v-row v-if="!snackbar" dense>
     <v-col cols="12">
-      <track-detail v-if="track.trackName" :track="track" />
+      <track-detail
+        v-if="track.trackName"
+        :track="track"
+        @add-favorite="addFavorite"
+        @remove-favorite="removeFavorite"
+      />
       <router-link
         :to="{ name: 'dashboard' }"
         class="white--text"

@@ -24,7 +24,13 @@
         <span class="headline">Results</span>
       </v-card-title>
       <v-card-text>
-        <track-list :footer="false" :list="results" :toolbar="false" />
+        <track-list
+          :footer="false"
+          :list="results"
+          :toolbar="false"
+          @add-favorite="addFavorite"
+          @remove-favorite="removeFavorite"
+        />
       </v-card-text>
     </v-card>
   </v-dialog>
