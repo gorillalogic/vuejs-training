@@ -6,7 +6,7 @@ import api from '@/api';
 import TrackDetail from '@/components/track-detail/track-detail.vue';
 import TrackList from '@/components/track-list/track-list.vue';
 
-import { addAndRemove, allFavorites } from '@/store/modules/favorites/utils';
+import { addAndRemoveFavorite, allFavorites } from '@/store/modules/favorites/utils';
 import { FETCH_FAVORITES, ALL_FAVORITES_LIMIT } from '@/store/modules/favorites/types';
 import { mapFavoritesToList } from '@/utils/mapFavoritesToList';
 
@@ -45,7 +45,7 @@ export default {
     },
   },
   methods: {
-    ...addAndRemove(),
+    ...addAndRemoveFavorite(),
     updatePodcastList() {
       this.podcasts = mapFavoritesToList(this.favorites, this.podcasts);
     },

@@ -3,7 +3,7 @@ import { getRandomPodcastCategory } from '@/utils/getRandomPodcastCategory';
 import api from '@/api';
 import TrackList from '@/components/track-list/track-list.vue';
 
-import { addAndRemove, allFavorites } from '@/store/modules/favorites/utils';
+import { addAndRemoveFavorite, allFavorites } from '@/store/modules/favorites/utils';
 import { FETCH_FAVORITES } from '@/store/modules/favorites/types';
 import { mapFavoritesToList } from '@/utils/mapFavoritesToList';
 
@@ -19,7 +19,7 @@ export default {
     };
   },
   methods: {
-    ...addAndRemove(),
+    ...addAndRemoveFavorite(),
     updatePodcastList(){
       this.podcasts = mapFavoritesToList(this.favorites, this.podcasts);
     },

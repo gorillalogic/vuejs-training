@@ -3,7 +3,7 @@ import { isNil } from 'ramda';
 import api from '@/api';
 import TrackDetail from '@/components/track-detail/track-detail.vue';
 
-import { addAndRemove, allFavorites } from '@/store/modules/favorites/utils';
+import { addAndRemoveFavorite, allFavorites } from '@/store/modules/favorites/utils';
 import { FETCH_FAVORITES } from '@/store/modules/favorites/types';
 import { mapFavoriteTrack } from '@/utils/mapFavoritesToList'
 
@@ -25,7 +25,7 @@ export default {
     ...allFavorites(),
   },
   methods: {
-    ...addAndRemove(),
+    ...addAndRemoveFavorite(),
     async fetchData() {
       // Fetch favorites from store
       this.$store.dispatch(FETCH_FAVORITES);

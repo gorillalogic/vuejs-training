@@ -1,7 +1,7 @@
 import { filterBySearchTerm } from '@/utils/filterBySearchTerm';
 import TrackList from '@/components/track-list/track-list.vue';
 
-import { addAndRemove } from '@/store/modules/favorites/utils'
+import { addAndRemoveFavorite } from '@/store/modules/favorites/utils'
 import { FETCH_FAVORITES, ALL_FAVORITES_LIMIT } from '@/store/modules/favorites/types'
 
 const MAX_LIST_ITEMS = 100;
@@ -17,7 +17,7 @@ export default {
     };
   },
   methods: {
-    ...addAndRemove(),
+    ...addAndRemoveFavorite(),
   },
   computed: {
     favorites() {

@@ -1,7 +1,7 @@
 import { mapGetters, mapActions } from 'vuex';
 import { ADD_FAVORITE, REMOVE_FAVORITE, ALL_FAVORITES } from '../types';
 
-export const addAndRemove = () => ({
+export const addAndRemoveFavorite = () => ({
   ...mapActions({ addFavorite: ADD_FAVORITE, removeFavorite: REMOVE_FAVORITE }),
 });
 

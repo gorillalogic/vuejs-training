@@ -2,7 +2,7 @@ import api from '@/api';
 import SearchInput from '@/components/search-input/search-input.vue';
 import TrackList from '@/components/track-list/track-list.vue';
 
-import { addAndRemove, allFavorites } from '@/store/modules/favorites/utils';
+import { addAndRemoveFavorite, allFavorites } from '@/store/modules/favorites/utils';
 import { mapFavoritesToList } from '@/utils/mapFavoritesToList';
 
 export default {
@@ -19,7 +19,7 @@ export default {
     };
   },
   methods: {
-    ...addAndRemove(),
+    ...addAndRemoveFavorite(),
     async searchTracks(term) {
       if (!term) {
         return;

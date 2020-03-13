@@ -1,6 +1,8 @@
-export const ADD_FAVORITE = 'favorites/addFavorite';
-export const REMOVE_FAVORITE = 'favorites/removeFavorite';
-export const FETCH_FAVORITES = 'favorites/fetchFavorites';
-export const SET_FAVORITES = 'favorites/setFavorites';
-export const ALL_FAVORITES = 'favorites/allFavorites';
-export const ALL_FAVORITES_LIMIT = 'favorites/allFavoritesLimit';
+const NAME_SPACE = 'favorites';
+
+export const ADD_FAVORITE = `${NAME_SPACE}/addFavorite`;
+export const REMOVE_FAVORITE = `${NAME_SPACE}/removeFavorite`;
+export const FETCH_FAVORITES = `${NAME_SPACE}/fetchFavorites`;
+export const SET_FAVORITES = `${NAME_SPACE}/setFavorites`;
+export const ALL_FAVORITES = `${NAME_SPACE}/allFavorites`;
+export const ALL_FAVORITES_LIMIT = `${NAME_SPACE}/allFavoritesLimit`;
