@@ -2,6 +2,9 @@ import api from '@/api';
 import SearchInput from '@/components/search-input/search-input.vue';
 import TrackList from '@/components/track-list/track-list.vue';
 
+import { addAndRemoveFavorite, allFavorites } from '@/store/modules/favorites/utils';
+import { mapFavoritesToList } from '@/utils/mapFavoritesToList';
+
 export default {
   name: 'SearchLightbox',
   components: {
@@ -16,6 +19,7 @@ export default {
     };
   },
   methods: {
+    ...addAndRemoveFavorite(),
     async searchTracks(term) {
       if (!term) {
         return;
@@ -27,6 +31,12 @@ export default {
       this.dialog = results.length > 0;
       this.loading = false;
     },
+    updatePodcastList() {
+      this.results = mapFavoritesToList(this.favorites, this.results);
+    },
+  },
+  computed: {
+    ...allFavorites(),
   },
   watch: {
     dialog(value) {
@@ -38,6 +48,12 @@ export default {
     },
     $route() {
       this.dialog = false;
+    },
+    favorites: {
+      handler() {
+        this.updatePodcastList();
+      },
+      deep: true,
     },
   },
 };
