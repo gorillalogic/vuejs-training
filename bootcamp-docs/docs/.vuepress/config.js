@@ -3,7 +3,7 @@ module.exports = {
 	dest: './dist',
 	base: '/vuejs-training/',
 	themeConfig: {
-		repo: 'https://github.com/gorillalogic/vuejs-training/bootcamp/',
+		repo: 'https://github.com/gorillalogic/vuejs-training/',
 		repoLabel: 'Repo',
 		docsDir: 'src',
 		editLinks: false,

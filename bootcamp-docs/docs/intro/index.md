@@ -89,3 +89,7 @@ This Bootcamp would not have been possible without Gorilla's support in general,
 Also, special thanks to the team that was involved on any of the stages of this Bootcamp: Alejandro Benjumea (alejandro.benjumea), Jose Penagos (jose.penagos), Juan Giraldo (juan.giraldo), Julián Figueroa (julian.figueroa), Oscar Granada (oscar.granada) y Oscar Polanco (oscar.polanco).
 
 Last but not least, thanks to all the Vue.js team and online trainers that provided us as a team with this valuable knowledge.
+
+## Disclaimer
+
+This Bootcamp was created for educational purposes for the Gorilla Logic team, therefore it has not profit purpose. All the external content that is included here is open source and/or part of open communities with available resources in the internet, and is used throughout the Bootcamp for reference and deep diving.
