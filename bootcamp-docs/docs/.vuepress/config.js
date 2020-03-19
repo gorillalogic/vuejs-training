@@ -7,7 +7,7 @@ module.exports = {
 		repoLabel: 'Repo',
 		docsDir: 'src',
 		editLinks: false,
-		logo: '/image.png',
+		logo: '/logo-gl-2.png',
 		nav: [
 			{ text: 'Home', link: '/' },
 			{ text: 'Get Started', link: '/intro/' }

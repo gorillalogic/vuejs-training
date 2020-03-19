@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /image.png
+heroImage: /logoBlack.png
 heroText: Vue.js Bootcamp
 tagline: Interested on learning Vue.js? This bootcamp will walk you through a practical process to learn it.
 actionText: Get Started →
